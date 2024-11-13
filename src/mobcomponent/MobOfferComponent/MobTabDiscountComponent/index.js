@@ -14,7 +14,7 @@ const MobTabDiscountComponent = () => {
       setLoading(true); // Start loading
       try {
         const response = await axios.get(
-          "http://13.61.33.202/api/v2/coupons-list"
+          process.env.REACT_APP_PHP_URL + "/v2/coupons-list"
         );
         if (response) {
           const data = response.data;

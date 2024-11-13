@@ -93,7 +93,7 @@ const MobCartChooseChangeLocationComponent = ({
     const data = async () => {
       try {
         const response = await axios.get(
-          "http://13.61.33.202/api/v2/address/get",
+          process.env.REACT_APP_PHP_URL + "/v2/address/get",
 
           {
             headers: {

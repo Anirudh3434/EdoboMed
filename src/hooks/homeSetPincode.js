@@ -25,7 +25,8 @@ const useFetchProducts = () => {
         setLoading(true);
         try {
           const response = await axios.get(
-            `http://13.61.33.202/api/v2/home-screen?device=1&pincode=${pinCode}`,
+            process.env.REACT_APP_PHP_URL +
+              `/v2/home-screen?device=1&pincode=${pinCode}`,
             {
               timeout: 5000, // Set a 5-second timeout for the request
               headers: {

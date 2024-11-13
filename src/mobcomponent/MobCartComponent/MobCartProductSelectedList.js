@@ -33,7 +33,7 @@ const MobCartProductSelectedList = () => {
 
     try {
       const response = await axios.post(
-        "http://13.61.33.202/api/v2/cart/product",
+        process.env.REACT_APP_PHP_URL + "/v2/cart/product",
         {
           pincode: pincode,
           product_id: product.id,
@@ -64,7 +64,7 @@ const MobCartProductSelectedList = () => {
 
     try {
       const response = await axios.post(
-        "http://13.61.33.202/api/v2/cart/product",
+        process.env.REACT_APP_PHP_URL + "/v2/cart/product",
         {
           pincode: pincode,
           product_id: product.id,
@@ -97,7 +97,8 @@ const MobCartProductSelectedList = () => {
       console.log("okokoko", token);
       try {
         const response = await axios.get(
-          "http://13.61.33.202/api/v2/cart/details?pincode=400071&device=1",
+          process.env.REACT_APP_PHP_URL +
+            "/v2/cart/details?pincode=400071&device=1",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -142,7 +143,7 @@ const MobCartProductSelectedList = () => {
 
     try {
       const response = await axios.post(
-        "http://13.61.33.202/api/v2/cart/product",
+        process.env.REACT_APP_PHP_URL + "/v2/cart/product",
         requestData,
         {
           headers: {

@@ -22,6 +22,14 @@
   cursor: pointer;
 }
 
+.btn-close {
+  position: absolute;
+  top: 8px; /* Adjust the position as needed */
+  right: 6px; /* Adjust the position as needed */
+  z-index: 10;
+  /* Ensure it appears above the map */
+}
+
 .mob-location-component-search-loaction-container {
   margin-top: 10px;
   margin-inline: auto;
@@ -37,6 +45,28 @@
   border-radius: 10px;
   cursor: pointer;
 }
+.custom-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #000; /* Adjust color as needed */
+  font-size: 24px; /* Adjust size as needed */
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.custom-close-button:focus,
+.custom-close-button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+/* .custom-button {
+  overflow: auto;
+} */
 
 .mob-location-component-search-close-btn {
   width: 100px;
@@ -57,9 +87,8 @@
   padding: 0 !important;
 }
 
-.text-secondary{
+.text-secondary {
   text-align: justify;
   font-weight: 600;
   color: black;
 }
-

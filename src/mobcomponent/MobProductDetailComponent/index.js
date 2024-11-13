@@ -135,7 +135,8 @@ const MobProductDetailComponent = () => {
     const response = async () => {
       try {
         const response = await axios.get(
-          `http://13.61.33.202/api/v2/product-details?id=${productId}&pincode=${pincode}`
+          process.env.REACT_APP_PHP_URL +
+            `/v2/product-details?id=${productId}&pincode=${pincode}`
         );
         console.log(response.data);
         setData(response.data.data[0]);

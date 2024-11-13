@@ -121,7 +121,7 @@ const MobHomeComponent = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://13.61.33.202/api/v2/user-details",
+          process.env.REACT_APP_PHP_URL + "/v2/user-details",
           {
             headers: {
               Authorization: `Bearer ${token}`,

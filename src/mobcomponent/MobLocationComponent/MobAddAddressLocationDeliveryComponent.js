@@ -154,7 +154,7 @@ const MobAddAddressLocationDeliveryComponent = ({
         <div className="fw-bold">HOUSE / FLAT / BLOCK no.</div>
         <input
           type="text"
-          className="border-0 border-bottom border-danger w-100 h-100 fs-14 p-2"
+          className="border-0 border-bottom border-danger w-100 h-100 fs-14 p-2 "
           placeholder="Enter House / Flat / Block no."
           value={houseNumber}
           onChange={(e) => handleInputChange(e, "houseNumber")}

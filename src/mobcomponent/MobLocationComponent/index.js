@@ -465,6 +465,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MobEnableLocationComponent from "./MobEnableLocationComponent";
 import MobSearchLocationManuallyComponent from "./MobSearchLocationManuallyComponent";
 import MobHeaderComponent from "../MobHeaderComponent";
+
+
+
+
 const MobLocationComponent = ({
   onClose = () => {},
   onConfirmLocation = () => {},
@@ -593,17 +597,19 @@ const MobLocationComponent = ({
             data-bs-backdrop="fixed"
             data-bs-scroll="false"
           >
-            <div className="offcanvas-body  m-0 p-0">
-              <div className="d-flex justify-content-end ">
-                <button
-                  type="button"
-                  className="btn-close faicons-size "
-                  onClick={() => {
-                    // onShortOrderOpenCloseHandler(false);
-                    onClose();
-                  }}
-                ></button>
-              </div>
+            <div className="offcanvas-body  m-0 p-0 position-relative">
+              {/* <div className="d-flex justify-content-end "> */}
+              <button
+                type="button"
+                // className="btn-close custom-button"
+                className="btn-close "
+                
+                onClick={() => {
+                  // onShortOrderOpenCloseHandler(false);
+                  onClose();
+                }}
+              ></button>
+              {/* </div> */}
               {/* <MobHeaderComponent pinCode={pinCode} /> */}
               <MobEnableLocationComponent
                 onClose={() => {

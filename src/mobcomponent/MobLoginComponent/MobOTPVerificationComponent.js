@@ -44,7 +44,7 @@ const MobOTPVerificationComponent = () => {
 
     if (OTP.toString() === otp) {
       const response = await axios.post(
-        "http://13.61.33.202/api/v2/verify-otp",
+        process.env.REACT_APP_PHP_URL + "/v2/verify-otp",
         { phone: phone, otp: otp, ref_id: ref_id }
       );
       if (response) {

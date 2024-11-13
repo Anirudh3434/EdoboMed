@@ -18,7 +18,7 @@ const MobWishList = ({ id }) => {
       try {
         // setLoading(true);
         const response = await axios.get(
-          "http://13.61.33.202/api/v2/wish-list",
+          process.env.REACT_APP_PHP_URL + "/v2/wish-list",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ const MobWishList = ({ id }) => {
     try {
       if (!isAddedToWishlist) {
         const response = await axios.post(
-          "http://13.61.33.202/api/v2/wishlist-store",
+          process.env.REACT_APP_PHP_URL + "/v2/wishlist-store",
           { product_id: id },
           {
             headers: {
@@ -63,7 +63,8 @@ const MobWishList = ({ id }) => {
         }
       } else {
         const response = await axios.post(
-          `http://13.61.33.202/api/v2/wishlist-delete?product_id=${id}`,
+          process.env.REACT_APP_PHP_URL +
+            `/api/v2/wishlist-delete?product_id=${id}`,
           {},
           {
             headers: {

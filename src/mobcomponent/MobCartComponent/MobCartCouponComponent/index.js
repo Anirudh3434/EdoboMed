@@ -25,7 +25,7 @@ const MobCartCouponComponent = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "http://13.61.33.202/api/v2/coupons-list"
+          process.env.REACT_APP_PHP_URL + "/v2/coupons-list"
         );
         if (response) {
           setCouponData(response.data);
@@ -45,7 +45,7 @@ const MobCartCouponComponent = () => {
   const handleApplyCoupon = async (coupon) => {
     try {
       const response = await axios.post(
-        "http://13.61.33.202/api/apply-coupon",
+        process.env.REACT_APP_PHP_URL + "/apply-coupon",
         { coupon_code: coupon.code },
         {
           headers: {

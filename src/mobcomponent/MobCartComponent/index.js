@@ -365,7 +365,7 @@ const MobCartComponent = () => {
   const handleRemove = async () => {
     try {
       const response = await axios.post(
-        "http://13.61.33.202/api/remove-coupon",
+        process.env.REACT_APP_PHP_URL + "/remove-coupon",
         {
           coupon_code: couponCode,
         },
@@ -447,7 +447,8 @@ const MobCartComponent = () => {
 
     try {
       const response = await axios.get(
-        `http://3.107.28.148/user/deliveryTimeSlots?delivery_name=govandii&substore_id=${substoreId}`,
+        process.env.REACT_APP_NODE_URL +
+          `/user/deliveryTimeSlots?delivery_name=govandii&substore_id=${substoreId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -667,7 +668,7 @@ const MobCartComponent = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://13.61.33.202/api/v2/user-details",
+          process.env.REACT_APP_PHP_URL + "/v2/user-details",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -766,7 +767,9 @@ const MobCartComponent = () => {
 
       try {
         // Step 1: Call your backend to create a Razorpay order
-        const response = await fetch("http://3.107.28.148/user/order-place", {
+        const NODE_URL = process.env.REACT_APP_NODE_URL;
+        console.log("node", NODE_URL);
+        const response = await fetch(`${NODE_URL}/user/order-place`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -792,7 +795,11 @@ const MobCartComponent = () => {
             delivery_type_id: deliveryTypeId,
           }),
         });
-
+        if (!response.ok) {
+          const errorMessage = await response.text(); // Retrieve the error message as text
+          alert(`Error: ${errorMessage}`);
+          return;
+        }
         const result = await response.json();
 
         if (result.success) {
@@ -809,7 +816,7 @@ const MobCartComponent = () => {
     } else {
       try {
         const response = await axios.post(
-          "http://3.107.28.148/user/order-place",
+          process.env.REACT_APP_NODE_URL + "/user/order-place",
           {
             payment_mode: payment,
             store_id: substoreId,
@@ -869,7 +876,7 @@ const MobCartComponent = () => {
   const fetchDeliveryTypes = async () => {
     try {
       const response = await axios.get(
-        "http://13.61.33.202/api/delivery-types"
+        process.env.REACT_APP_PHP_URL + "/delivery-types"
       );
       setDeliveryTypes(response.data.results.data);
       console.log("delivery Types..", response.data.results.data);

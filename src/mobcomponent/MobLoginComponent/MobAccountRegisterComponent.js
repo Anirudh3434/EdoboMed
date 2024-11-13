@@ -69,7 +69,7 @@ const MobAccountRegisterComponent = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://13.61.33.202/api/v2/profile-update",
+        process.env.REACT_APP_PHP_URL + "/v2/profile-update",
         {
           full_name: userName,
           email: emailId,

@@ -63,7 +63,7 @@ const MobEnableLocationComponent = ({
         console.error("No geometry location found for the selected place.");
       }
     }
-  }, [searchBox]);
+  }, [searchBox, setCurrentLocation]);
 
   const getAddressFromLatLng = useCallback(async (lat, lng) => {
     try {
@@ -108,19 +108,18 @@ const MobEnableLocationComponent = ({
         (position) => {
           const { latitude, longitude } = position.coords;
           const location = { lat: latitude, lng: longitude };
-          console.log("Geolocation fund:", location);
-          console.log("GPS data", address);
+          console.log("Geolocation found:", location);
           setCurrentLocation(location);
         },
         (error) => {
           console.error("Error getting geolocation:", error);
         },
-        { enableHighAccuracy: true } // Request high accuracy if possible
+        { maximumAge: 0, timeout: 5000, enableHighAccuracy: true }
       );
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
-  }, []);
+  }, [setCurrentLocation]);
 
   useEffect(() => {
     getCurrentLocation();
@@ -130,6 +129,7 @@ const MobEnableLocationComponent = ({
     if (currentLocation) {
       console.log("Current location changed, getting address...");
       getAddressFromLatLng(currentLocation.lat, currentLocation.lng);
+      console.log("new lat and lang", currentLocation.lat, currentLocation.lng);
     }
   }, [currentLocation, getAddressFromLatLng]);
 
@@ -138,7 +138,7 @@ const MobEnableLocationComponent = ({
   return (
     <>
       <GoogleMap
-        mapContainerStyle={{ width: "100%", height: "70%" }}
+        mapContainerStyle={{ width: "100%", height: "80%" }}
         center={currentLocation || { lat: 19.076, lng: 72.8777 }} // Default to Mumbai if no currentLocation
         zoom={13}
         options={{

@@ -32,7 +32,7 @@ const MobSlideCollectionComponent = ({ data }) => {
 
     try {
       const response = await axios.post(
-        "http://13.61.33.202/api/v2/cart/product",
+        process.env.REACT_APP_PHP_URL + "/v2/cart/product",
         {
           pincode: pincode,
           product_id: product.id,
@@ -63,7 +63,7 @@ const MobSlideCollectionComponent = ({ data }) => {
 
     try {
       const response = await axios.post(
-        "http://13.61.33.202/api/v2/cart/product",
+        process.env.REACT_APP_PHP_URL + "/v2/cart/product",
         {
           pincode: pincode,
           product_id: product.id,
@@ -97,7 +97,7 @@ const MobSlideCollectionComponent = ({ data }) => {
       const quantity = productQuantities[product.id] || 1;
       console.log(quantity);
       const response = await axios.post(
-        "http://13.61.33.202/api/v2/add-to-cart",
+        process.env.REACT_APP_PHP_URL + "/v2/add-to-cart",
         {
           product_id: product.id,
           qty: 1,

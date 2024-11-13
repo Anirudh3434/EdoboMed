@@ -24,14 +24,14 @@
   align-items: center;
   position: absolute;
   left: 54%;
-  top: 1%;
- 
+  top: 3%;
+
   transform: translate(-50%, -50%);
   width: 100%;
   z-index: 5;
 }
 
-.search-icon{
+.search-icon {
   position: absolute;
   left: 5%;
   top: 20px;
