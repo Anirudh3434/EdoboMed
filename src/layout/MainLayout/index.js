@@ -9,6 +9,7 @@ import GlobalContext from "../../context/GlobalContext";
 import MobHomeComponent from "../../mobcomponent/MobHomeComponent";
 import MobHeaderComponent from "../../mobcomponent/MobHeaderComponent";
 import MobBottomNavComponent from "../../mobcomponent/MobBottomNavComponent";
+import EdoboPlusHeaderComponent from '../../component/Edobo+/Header'
 
 const MainLayout = () => {
   const navigate = useNavigate();
@@ -20,7 +21,8 @@ const MainLayout = () => {
   return (
     <>
       <div className="d-lg-flex d-none justify-content-center">
-        <HeaderComponent />
+        {/* <HeaderComponent /> */}
+        <EdoboPlusHeaderComponent/>
         <div className="header-box-outlet edobo-white">
           <Outlet />
           <FooterComponent />

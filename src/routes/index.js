@@ -24,6 +24,11 @@ const HomeComponent = Loadable(
 const MobHomeComponent = Loadable(
   lazy(() => import("../mobcomponent/MobHomeComponent"))
 );
+
+const EdoboPlusHomeComponent = Loadable(
+  lazy(() => import("../component/Edobo+/HomeComponent/index"))
+);
+
 const DashboardDefault = Loadable(
   lazy(() => import("../component/HeaderComponent"))
 );
@@ -314,10 +319,22 @@ const RouteComponent = () => {
 
         {/* Edobo store */}
 
+ 
+
+
+        
         <Route
           path={ROUTES_NAVIGATION.EDOBO_STORE}
           element={isMobileView ? "" : <EdoboStoreComponent />}
         />
+
+                  {/* Edobo plus */}
+
+                  <Route
+          path={ROUTES_NAVIGATION.EDOBO_PLUS}
+          element={isMobileView ? "" : <EdoboPlusHomeComponent/>}
+        />
+
 
         {/* Cart Component */}
         <Route

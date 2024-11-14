@@ -42,6 +42,7 @@ const ROUTES_NAVIGATION = {
   ACCOUNT_REGISTER: "/account-register",
   CREDITO_COIN: "/credito-coin",
   EDOBO_STORE: "/edobo-store",
+  EDOBO_PLUS: "/edoboplus"
 
 };
 
